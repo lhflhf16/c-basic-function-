@@ -1,0 +1,74 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<time.h>
+#include<math.h>
+
+//简洁一点的方法
+void jiaohuan(int* pa, int* pb)
+{
+	int tmp = 0;
+	tmp = *pa;
+	*pa = *pb;
+	*pb = tmp;
+}
+
+int main()
+{
+	int a = 100;
+	int b = 34;
+	printf("a=%d b=%d\n", a, b);
+	jiaohuan(&a, &b);
+	printf("a=%d b=%d\n", a, b);
+	return 0;
+}
+//简洁一点的方法
+
+//自己想的
+//void jiaohuan(int* x, int* y)//如果这里不使用指针那么a,b和x,y之间的联系就仅仅只是将x=a,y=b之后就没用任何联系了，并且在找两个数中的大数时如果没有用return 将及定义函数的值返回给c，程序也是会不对的
+////可以这样理解自定义函数是个桥梁，a,b x,y是进入口，而return是出口，当定义void类型的函数时，就没有出口了所以会出错。所以要用到地址来让a,b  x,y 之间的联系更深刻。
+//{
+//	int tem = 0;
+//	tem = *x;
+//	*x = *y;
+//	*y = tem;
+//}
+//
+//int main()
+//{
+//	int a = 100;
+//	int b = 34;
+//	int* pa = &a;
+//	int* pb = &b;
+//	printf("a=%d b=%d\n", a, b);
+//	jiaohuan(pa, pb);
+//	printf("a=%d b=%d\n", a, b);
+//	return 0;
+//}
+//自己想的
+
+//这是个错误的示范
+//int get_max (int x, int y)
+//{
+//	if (x > y)
+//	{
+//		return x;
+//	}
+//	else
+//		return y;
+//}
+//
+//int main()
+//{
+//	int a = 9;
+//	int b = 8;
+//	int c = get_max(a, b);
+//	printf("%d ", c);
+//	c = get_max(100, 1000);
+//	printf("%d\n", c);
+//
+//	return 0;
+//}
+//这是个错误的示范
