@@ -1,0 +1,28 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<time.h>
+#include<math.h>
+
+//写一个函数，使用这个函数一次num就增加一次
+//因为会改变函数外部的量，所以要用传址调用。使用指针
+void menglin(int* p)
+{
+	(*p)++;//这里是想让*p即num++所以要给它用括号括起来，如果写为*p++，因为++优先级较高，执行的是p++，会导致num一直是0
+}
+
+int main()
+{
+	int num = 0;
+	int i = 0;
+	for (i = 0; i < 10; i++)
+	{
+		menglin(&num);
+		printf("num=%d\n", num);
+	}
+	
+	return 0;
+}
+//写一个函数，使用这个函数一次num
