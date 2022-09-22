@@ -1,0 +1,36 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<time.h>
+#include<math.h>
+//链式访问
+int main()
+{
+	printf("%d ", printf("%d ", printf("%d ",43)));//当链式访问函数时，应该要知道函数的返回值才行，这里printf的返回值是，所打印出的字符个数。
+	//43 （不要忘了还打印了空格）字符个数为3，3 字符个数为2，2 字符个数为2
+	return 0;
+}
+//链式访问
+
+//嵌套调用
+//void new_line()
+//{
+//	printf("hehe\n");
+//}
+//void three_line()
+//{
+//	int i = 0;
+//	for (i = 0; i < 3; i++)
+//	{
+//		new_line();
+//	}
+//}
+//
+//int main()
+//{
+//	three_line();
+//	return 0;
+//}
+//嵌套调用
