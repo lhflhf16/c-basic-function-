@@ -1,0 +1,30 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<stdio.h>
+
+//递归实现阶乘
+//比如4的阶乘
+//4*3*2*1
+//4*3
+//4*3*2
+//4*3*2*1
+int jiecheng(int i,int n)
+{
+	if (i <= n)
+	{
+		return jiecheng(i + 1,n)*i;
+	}
+	else
+	{
+		return 1;
+	}
+}
+int main()
+{
+	int i = 1;
+	int n = 9;//表示n!
+	int sum = jiecheng(i,n);
+	printf("%d", sum);
+	return 0;
+}
+//递归实现阶乘
