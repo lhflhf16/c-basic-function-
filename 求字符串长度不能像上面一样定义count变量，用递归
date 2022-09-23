@@ -1,0 +1,47 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<stdio.h>
+
+//求字符串长度
+//int my_strlen(char* str)
+//{
+//	int count=0;
+//	while (*str != '\0')
+//	{
+//		count++;
+//		str++;
+//	}
+//	return count;
+//}
+//求字符串长度
+
+//求字符串长度不能像上面一样定义count变量，用递归
+//递归的核心思想：大事化小
+//my_strlen("bit")
+///my_strlen("it")+1
+//my_strlen("t")+1+1
+//my_strlen("")+1+1+1
+//0+1+1+1
+//关键在于如何把指针指向下一个字符：str+1
+//运行后只要不为'\0'就会返回值1+my_strlen()，这里又要执行函数来确定返回值是多少，当为'\0'时，表示没有字符返回值为0。
+//因为return没有一个确切的值，所以不会是碰到return就结束函数，而且递归是相当于函数里面还有函数，即使return了，也不会直接跳出最外面的函数，而是跳出一个当前执行return的函数
+//递归就像一层一层的洋葱一样，要从最外面进入最里面，再从最里面走到最外面，不能跳层。
+int my_strlen(char* str)
+{
+	if (*str != '\0')
+	{
+		return 1 + my_strlen(str+1);
+	}
+	else
+	{
+		return 0;
+	}
+}
+
+int main()
+{
+	char arr[] = "bit";
+	int sum = my_strlen(arr);
+	printf("len=%d\n", sum);
+	return 0;
+}
