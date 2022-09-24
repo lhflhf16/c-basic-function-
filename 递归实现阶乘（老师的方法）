@@ -1,0 +1,27 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<stdio.h>
+
+//老师的理解
+//jiecheng1（n）：n=1  1
+//              ：n>1  n*jiecheng1(n-1)
+
+int jiecheng1(int n)
+{
+	if (1==n)
+	{
+		return 1;
+	}
+	else
+	{
+		return n*jiecheng1(n - 1);
+	}
+}
+int main()
+{
+	int i = 0;
+	scanf("%d", &i);
+	int sum = jiecheng1(i);
+	printf("sum=%d", sum);
+	return 0;
+}
