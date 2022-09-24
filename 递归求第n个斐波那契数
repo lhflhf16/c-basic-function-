@@ -1,0 +1,32 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<stdio.h>
+
+//递归求第n个斐波那契数
+//斐波那契数列：1 1 2 3 5 8 13 21 34 55
+
+//            ：1   （n<=2）
+//Fiber（n）=
+//            ：Fib(n-1)+Fib(n-2)   (n>2)
+
+int Fib(int n)
+{
+	if (n <= 2)
+	{
+		return 1;
+	}
+	else
+	{
+		return Fib(n - 1) + Fib(n - 2);
+	}
+}
+
+int main()
+{
+	int i = 10;
+	scanf("%d", &i);
+	int sum = Fib(i);
+	printf("%d\n", sum);
+	return 0;
+}
+//递归求第n个斐波那契数
