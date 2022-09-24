@@ -1,0 +1,53 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<stdio.h>
+
+
+
+//用循环函数来求斐波那契数
+//运算速度相比递归提升了很多
+int Fib(int n)
+{
+	int a = 1;
+	int b = 1;
+	int c = 1;
+	while (n > 2)//比如要算n=4的数，就要循环两次（n-2），并且需要循环的次数是在减小的，所以n值因该不断减小，n--。
+	{
+		c = a + b;
+		a = b;
+		b = c;
+		n--;
+	}
+	return c;//当n<=2，不进入循环，这时数都返回1，所以c的初始值因该为1
+}
+int main()
+{
+	int n = 0;
+	scanf("%d", &n);
+	int sum=Fib(n);
+	printf("%d", sum);
+	return 0;
+}
+//用循环函数来求斐波那契数
+
+
+
+//直接写循环求斐波那契数
+//int main()
+//{
+//	int a = 1;
+//	int b = 1;
+//	int c = 1;
+//	int n = 0;//求第n个斐波那契数
+//	scanf("%d", &n);
+//	while (n>2)//用循环去求n=40时的运算速度明显提升。
+//	{
+//		c = a + b;
+//		a = b;
+//		b = c;
+//		n--;
+//	}
+//	printf("%d\n", c);
+//	return 0;
+//}
+//直接写循环求斐波那契数
