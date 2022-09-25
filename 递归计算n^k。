@@ -1,0 +1,25 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<stdio.h>
+
+int Exponential_function(int n, int k)
+{
+	if (n != 1 && k>0)
+	{
+		return n*Exponential_function(n, k - 1);
+	}
+	else
+	{
+		return 1;
+	}
+}
+
+int main()
+{
+	int n = 0;
+	int k = 0;
+	scanf("%d%d", &n, &k);
+	int sum = Exponential_function(n, k);
+	printf("sum=%d\n", sum);
+	return 0;
+}
