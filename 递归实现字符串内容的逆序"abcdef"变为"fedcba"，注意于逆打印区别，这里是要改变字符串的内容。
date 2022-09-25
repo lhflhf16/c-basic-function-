@@ -1,0 +1,32 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<stdio.h>
+
+
+
+//递归实现字符串内容的逆序"abcdef"变为"fedcba"，注意于逆打印区别，这里是要改变字符串的内容。
+//void exc(char* str, int i, int sz)
+//{
+//	if (i < sz / 2)
+//	{
+//		exc(str + 1, i + 1, sz - 1);
+//		//下面是用来实现字符交换的语句
+//		//定义ch是为了让*str的内容不丢失
+//	    //
+//		char ch = ' ';
+//		ch = *str;
+//		*str = *(str + (sz-(i+1)));
+//		*(str + (sz - (i + 1))) = ch;
+//	}
+//}
+//
+//int main()
+//{
+//	char arr[] = "abcdef";
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	int i = 0;
+//	exc(arr,i,sz-1);
+//	printf("%s\n", arr);
+//	return 0;
+//}
+//递归实现字符串内容的逆序"abcdef"变为"fedcba"，注意于逆打印区别，这里是要改变字符串的内容。
