@@ -1,0 +1,26 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<stdio.h>
+
+//递归实现输入1234打印出1+2+3+4的结果
+int DigitSum(int n)
+{
+	if (n > 9)
+	{
+		return DigitSum(n / 10)+n%10;
+	}
+	else
+	{
+		return n;
+	}
+}
+
+int main()
+{
+	int i = 0;
+	scanf("%d", &i);
+	int sum = DigitSum(i);
+	printf("sum=%d\n", sum);
+	return 0;
+}
+//递归实现输入1234打印出1+2+3+4的结果
