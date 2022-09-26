@@ -1,0 +1,30 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include<stdio.h>
+#include<string.h>
+
+void ni_char(char* str,char* kong)
+{
+	//ni_char(abcd)
+	//ni_char(bcd) a
+	//ni_char(cd) b a
+	//ni_char(d) c b  a
+	//d c b a
+	//_ _ _ _  '_'这里代表空格的意思，将最里层的d赋值给第一个空格，所以函数运行时arr从前往后走，arr0从后往前走。
+	if (*str != '\0')
+	{
+		ni_char(str + 1,kong-1);
+		*kong = *str;
+	}
+}
+
+int main()
+{
+	char arr[] = "abcdefgh";
+	char arr0[] = "        ";
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	int ys = sz - 1;
+	ni_char(arr, arr0 + ys - 1);
+	printf("%s\n",arr0);
+	return 0;
+}
