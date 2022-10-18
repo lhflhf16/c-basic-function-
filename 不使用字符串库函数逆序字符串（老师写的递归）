@@ -1,0 +1,50 @@
+//不使用字符串库函数逆序字符串（老师写的递归）
+/*思路：逆序"abcdef\0"分为两步
+        1.交换a和f
+		2.逆序"bcde\0"
+
+		所以在交换a和f时，先把a赋给临时变量，f
+		放到a所在字符串的位置，这时应该先创造出
+		新的字符串，所以应该先把f所在位置变为
+		'\0',进行递归之后再把临时变量赋给f之前
+		所在字符串的位置*/
+#include<stdio.h>
+int my_strlen(char* arr)
+{
+	int count = 0;
+	while (*arr != '\0')
+	{
+		count++;
+		arr++;
+	}
+	return count;
+}
+void reverse_string(char* arr)
+{
+	int left = 0;
+	int right = my_strlen(arr)-1;
+	char tmp = arr[left];
+	arr[left] = arr[right];
+	arr[right] = '\0';
+	if (my_strlen(arr + 1) >= 2)
+	{
+		reverse_string(arr + 1);
+	}
+	arr[right] = tmp;
+}
+void Display(char* arr)
+{
+	int i = 0;
+	for (i = 0; i < my_strlen(arr); i++)
+	{
+		printf("%c", *(arr + i));
+	}
+	printf("\n");
+}
+int main()
+{
+	char arr[] = "abcdef";
+	reverse_string(arr);
+	Display(arr);
+	return 0;
+}
