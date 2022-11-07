@@ -1,0 +1,27 @@
+#include<stdio.h>
+#include<string.h>
+#include<assert.h>
+
+void function(char* str)
+{
+	char* left = str;
+	char* right = str + strlen(str) - 1;
+	char tmp = *left;
+	*left = *right;
+	*right = '\0';
+	if (strlen(str+1) >= 2)
+	{
+		function(str + 1);
+	}
+	*right = tmp;
+}
+
+int main()
+{
+	char arr[100] = {0};
+	//scanf("%s", arr);//不会读取读取' '(空格)字符以及后面的内容
+	gets(arr);//读取一整行，包括' '（空格）在内
+	function(arr);
+	printf("%s\n", arr);
+	return 0;
+}
