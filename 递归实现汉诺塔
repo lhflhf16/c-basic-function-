@@ -1,0 +1,37 @@
+#include<stdio.h>
+
+void move(int n, char scr, char dest)
+{
+	//将具体移动步骤打印出来
+	printf("由%c柱->%c柱\n",scr, dest);
+}
+
+int Hannuota(int n, char x, char y, char z)
+{
+	//当只有一层汉诺塔时，直接a->c（微操作）
+	if (n == 1)
+	{
+		move(1, x, z);
+	}
+	else
+	{
+		//当汉诺塔层数n>1时，将n-1层汉诺塔全移动到b上，a->b（超级操作）
+		Hannuota(n - 1, x, z, y);
+		//这时a上只有最后一层汉诺塔，直接将他移动到c上，a->c（微操作）
+		move(n, x, z);
+		//最后将b上的n-1层汉诺塔全移动到c上，b->c(超级操作）
+		Hannuota(n - 1, y, x, z);
+	}
+	return 0;
+}
+
+int main()
+{
+	int n = 0;
+	//设置汉诺塔的层数
+	scanf("%d", &n);
+	//传入a，b，c字符作为三根柱子的名字，每一步的操作都可以用由 x柱->y柱 来表示如三层汉诺塔：
+	//a->c a->b c->b
+	Hannuota(n, 'a', 'b', 'c');
+	return 0;
+}
