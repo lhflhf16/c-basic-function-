@@ -1,0 +1,23 @@
+//思路:将台阶数1到6的跳跃方法列出可知，这是一个斐波那契数列前两项为1，2
+int Frog_Fibonacci(int n)
+{
+	if (n == 1)
+	{
+		return 1;
+	}
+	if (n == 2)
+	{
+		return 2;
+	}
+	int sum1 = Frog_Fibonacci(n - 1);
+	int sum2 = Frog_Fibonacci(n - 2);
+	return sum1 + sum2;
+}
+int main()
+{
+	int n = 0;
+	printf("台阶数");
+	scanf("%d", &n);
+	printf("%d\n", Frog_Fibonacci(n));
+	return 0;
+}
